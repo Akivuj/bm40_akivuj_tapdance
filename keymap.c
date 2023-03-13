@@ -30,7 +30,6 @@ enum layers {
 
 // Tap Dance declarations
 enum {
-    ESC,
     _1,
     _2,
     _3,
@@ -41,7 +40,6 @@ enum {
     _8,
     _9,
     _0,
-    SCLN,
     GRV,
     BSLS,
     SLSH,
@@ -54,7 +52,6 @@ enum {
 // Tap Dance definitions
 tap_dance_action_t tap_dance_actions[] = {
     // Tap once for Escape, twice for Caps Lock
-    [ESC] = ACTION_TAP_DANCE_DOUBLE(KC_ESC, KC_CAPS),
     [_1] = ACTION_TAP_DANCE_DOUBLE(KC_1, LSFT(KC_1)),
     [_2] = ACTION_TAP_DANCE_DOUBLE(KC_2, LSFT(KC_2)),
     [_3] = ACTION_TAP_DANCE_DOUBLE(KC_3, LSFT(KC_3)),
@@ -65,7 +62,6 @@ tap_dance_action_t tap_dance_actions[] = {
     [_8] = ACTION_TAP_DANCE_DOUBLE(KC_8, RSFT(KC_8)),
     [_9] = ACTION_TAP_DANCE_DOUBLE(KC_9, RSFT(KC_9)),
     [_0] = ACTION_TAP_DANCE_DOUBLE(KC_0, RSFT(KC_0)),
-    [SCLN] = ACTION_TAP_DANCE_DOUBLE(KC_SCLN, KC_MUTE),
     [GRV] = ACTION_TAP_DANCE_DOUBLE(KC_GRV, LSFT(KC_GRV)),
     [BSLS] = ACTION_TAP_DANCE_DOUBLE(KC_BSLS, LSFT(KC_BSLS)),
     [SLSH] = ACTION_TAP_DANCE_DOUBLE(KC_SLSH, LSFT(KC_SLSH)),
@@ -78,9 +74,9 @@ tap_dance_action_t tap_dance_actions[] = {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_0_BASE] = LAYOUT_planck_mit(
-      TD(ESC), LT(7,KC_QUOT), KC_COMM, KC_DOT, KC_P, KC_Y, KC_F, KC_G, KC_C, KC_R, KC_L, KC_BSPC,
+      KC_ESC, LT(7,KC_QUOT), KC_COMM, KC_DOT, KC_P, KC_Y, KC_F, KC_G, KC_C, KC_R, KC_L, KC_BSPC,
       KC_TAB, LGUI_T(KC_A), LALT_T(KC_O), LCTL_T(KC_E), LSFT_T(KC_U), RALT_T(KC_I), RALT_T(KC_D), RSFT_T(KC_H), RCTL_T(KC_T), LALT_T(KC_N), RGUI_T(KC_S), KC_ENT,
-      KC_LSFT, TD(SCLN), KC_Q, KC_J, KC_K, KC_X, KC_B, KC_M, KC_W, KC_V, KC_Z, KC_RSFT,
+      KC_LSFT, KC_SCLN, KC_Q, KC_J, KC_K, KC_X, KC_B, KC_M, KC_W, KC_V, KC_Z, KC_RSFT,
       RGB_TOG, DF(1), DF(2), MO(9), MO(4), LT(3,KC_SPC), LT(6,KC_SPC), LT(5,KC_LEFT), LT(8,KC_DOWN), KC_UP, KC_RGHT
       ),
 
@@ -99,7 +95,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       ),
 
     [_3_NUMEROS_SIMBOLOS] = LAYOUT_planck_mit(
-      KC_TRNS, TD(_1), TD(_2), TD(_3), TD(_4), TD(_5), TD(_6), TD(_7), TD(_8), TD(_9), TD(_0), KC_TRNS,
+      KC_CAPS, TD(_1), TD(_2), TD(_3), TD(_4), TD(_5), TD(_6), TD(_7), TD(_8), TD(_9), TD(_0), KC_TRNS,
       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
       KC_TRNS, KC_TRNS, TD(GRV), TD(BSLS), TD(SLSH), KC_TRNS, KC_TRNS, TD(MINS), TD(EQL), TD(LBRC), TD(RBRC), KC_TRNS,
       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
